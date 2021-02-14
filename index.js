@@ -32,26 +32,25 @@ async function handle(req) {
   const balance = account.balance;
   const excessBalance = balance % 100;
 
-  const createAccountTransferUrl = `/accounts/${transaction.account_id}/transfers/accounts`;
-
   if (excessBalance == 0) {
     return;
   }
 
-  return await fetch(BASE_URL + createAccountTransferUrl, {
-    method: "POST",
-    headers: {
-      "content-type": "application/json",
-      authorization: "Bearer " + config.apiToken,
-    },
-    body: JSON.stringify({
-      amount: excessBalance,
-      description: `Round-Up for ${transaction.description}`,
-      destination_account_id: config.savingsAccountID,
-    }),
-  })
-    .then((r) => r.json())
-    .then((json) => console.log(json));
+  return await fetch(
+    `${BASE_URL}/accounts/${transaction.account_id}/transfers/accounts`,
+    {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: "Bearer " + config.apiToken,
+      },
+      body: JSON.stringify({
+        amount: excessBalance,
+        description: `Round-Up for ${transaction.description}`,
+        destination_account_id: config.savingsAccountID,
+      }),
+    }
+  );
 }
 
 function signatureValid(req) {
