@@ -16,5 +16,5 @@ jobs:
       - name: 'Lint everything'
         run: |
           npm install
-          npm ci-lint
+          npm run ci-lint
           npm test
