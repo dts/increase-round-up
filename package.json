@@ -1,0 +1,31 @@
+{
+  "name": "round-up",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "prettier --write '**/*.{js,jsx,ts,tsx,json,md}'",
+    "test": "jest --coverage",
+    "deploy": "gcloud functions deploy increase-round-up --region=us-central1 --allow-unauthenticated --entry-point=roundUp --env-vars-file=.env --runtime=nodejs12 --trigger-http"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "statements": 100,
+        "lines": 100
+      }
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/secret-manager": "^3.4.0",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1"
+  }
+}
