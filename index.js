@@ -10,8 +10,6 @@ async function handle(req) {
   if (req.body.event != "created") return;
   if (!req.body.data.id.match(/^(pending_)?transaction/)) return;
 
-  throw new Error()
-  
   const transaction = req.body.data;
 
   if (
