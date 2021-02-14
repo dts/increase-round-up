@@ -10,8 +10,9 @@ In order to use this, you need to enable a few APIs in GCP, and set up your secr
 2. Create a secret (I named mine "increase-round-up").
 3. Paste in the configuration, a template is in "secret-example.json" (you'll need to copy some account IDs and your group's bearer token into this).
 4. Copy the "name" of the secret into .env-tmpl and save it as .env.
-5. Deploy the function to google with a `npm run deploy`.
-6. Google will print out the URL of your new cloud function, it will look like:
+5. Grant the "secret accessor" permission on the secret to the "<project-name>@appspot.gserviceaccount.com" serviceaccount.
+6. Deploy the function to google with a `npm run deploy`.
+7. Google will print out the URL of your new cloud function, it will look like:
 
 ```
 httpsTrigger:
@@ -19,7 +20,7 @@ httpsTrigger:
   url: https://us-central1-<project-name>.cloudfunctions.net/increase-round-up
 ```
 
-7. Copy that URL and your generated shared secret into your Increase.com webhook configuration: https://dashboard.increase.com/group-settings/webhooks.
+8. Copy that URL and your generated shared secret into your Increase.com webhook configuration: https://dashboard.increase.com/group-settings/webhooks.
 
 ## Testing
 
