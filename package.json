@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "prettier --write '**/*.{js,jsx,ts,tsx,json,md}'",
+    "ci-lint": "prettier -c '**/*.{js,jsx,ts,tsx,json,md}' --loglevel warn",
     "test": "jest --coverage",
     "deploy": "gcloud functions deploy increase-round-up --region=us-central1 --allow-unauthenticated --entry-point=roundUp --env-vars-file=.env --runtime=nodejs12 --trigger-http"
   },

@@ -1,0 +1,20 @@
+name: 'Test'
+on:
+  push:
+    branches:
+      - '**'
+jobs:
+  global-lint-and-test:
+    name: 'Lint & Test'
+    runs-on: 'ubuntu-latest'
+    steps:
+      - name: 'Install Node'
+        run: |
+          curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+      - uses: actions/checkout@v2
+      - name: 'Lint everything'
+        run: |
+          npm install
+          npm ci-lint
+          npm test
