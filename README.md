@@ -1,6 +1,6 @@
 # Increase.com "Round Up" Rule
 
-This repo gives an example of a "round up rule" (https://www.forbes.com/advisor/personal-finance/the-5-best-round-up-apps-for-saving-money/). It uses a Google Cloud Function to "round up" your transfers, meaning that your account balance is a whole dollar amount. Yes, it's silly and trivial, but I think it's fun! The API details are safely stored in Google Cloud Secrets, and the function is run as a webhook every time a potential change occurs to your account balance. It acts on debits as well as credits, keeping your primary account balance clean!
+This repo gives an example of a "round up rule" (https://www.forbes.com/advisor/personal-finance/the-5-best-round-up-apps-for-saving-money/). It uses a Google Cloud Function to "round up" your transfers, meaning that your account balance is a whole dollar amount. The API details are safely stored in Google Cloud Secrets, and the function is run as a webhook every time a potential change occurs to your account balance. It acts on debits as well as credits, keeping your primary account balance clean!
 
 ## Setup
 
